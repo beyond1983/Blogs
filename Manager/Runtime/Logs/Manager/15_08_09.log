@@ -1,57 +1,151 @@
-[ 2015-08-09T08:20:32+08:00 ] 127.0.0.1 /Manager/Index/index
-ERR: 模板不存在:./Manager/Manager/View/Index/Index.html
+[ 2015-08-09T13:03:59+08:00 ] 127.0.0.1 /Manager/System/RoleSave
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000709s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001180s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\PHPWEB\Blogs\ThinkPHP\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `sys_role` [ RunTime:0.0051s ]
+SQL: UPDATE `sys_role` SET `name`='后台用户',`pid`='0',`status`='1',`remark`='' WHERE ( id=15 ) [ RunTime:0.0003s ]
 
-[ 2015-08-09T08:20:58+08:00 ] 127.0.0.1 /Manager/System/Roles
-ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'blog.role' doesn't exist
+[ 2015-08-09T13:04:05+08:00 ] 127.0.0.1 /Manager/System/RoleSave
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000648s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001066s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\PHPWEB\Blogs\ThinkPHP\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `sys_role` [ RunTime:0.0514s ]
+SQL: UPDATE `sys_role` SET `name`='后台用户',`pid`='0',`status`='1',`remark`='121' WHERE ( id=15 ) [ RunTime:0.0003s ]
 
-[ 2015-08-09T08:22:05+08:00 ] 127.0.0.1 /Manager/Index/index
-ERR: 模板不存在:./Manager/Manager/View/Index/Index.html
+[ 2015-08-09T13:04:22+08:00 ] 127.0.0.1 /Manager/System/RoleSave
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000703s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001162s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\PHPWEB\Blogs\ThinkPHP\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `sys_role` [ RunTime:0.0062s ]
+SQL: UPDATE `sys_role` SET `name`='普通管理员',`pid`='0',`status`='1',`remark`='' WHERE ( id=16 ) [ RunTime:0.0003s ]
 
-[ 2015-08-09T08:24:50+08:00 ] 127.0.0.1 /Manager/Sysuser/Index
-ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'blog.sysuser' doesn't exist
+[ 2015-08-09T13:05:27+08:00 ] 127.0.0.1 /Manager/System/RoleSave
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000740s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001138s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\PHPWEB\Blogs\ThinkPHP\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `sys_role` [ RunTime:0.0055s ]
+SQL: UPDATE `sys_role` SET `name`='普通管理员',`pid`='0',`status`='1',`remark`='' WHERE ( id=16 ) [ RunTime:0.0003s ]
 
-[ 2015-08-09T08:26:41+08:00 ] 127.0.0.1 /Manager/Weixin/lists
-ERR: 无法加载控制器:Weixin
+[ 2015-08-09T13:05:33+08:00 ] 127.0.0.1 /Manager/System/RoleSave
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000910s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001461s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\PHPWEB\Blogs\ThinkPHP\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `sys_role` [ RunTime:0.0063s ]
+SQL: UPDATE `sys_role` SET `name`='普通管理员',`pid`='0',`status`='1',`remark`='' WHERE ( id=16 ) [ RunTime:0.0003s ]
 
-[ 2015-08-09T08:27:18+08:00 ] 127.0.0.1 /Manager/Weixin/lists
-ERR: 无法加载控制器:Weixin
+[ 2015-08-09T13:14:16+08:00 ] 127.0.0.1 /Manager/System/NodeSave
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000890s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001316s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\PHPWEB\Blogs\ThinkPHP\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `sys_node` [ RunTime:0.0059s ]
+SQL: UPDATE `sys_node` SET `name`='RoleEdit',`title`='角色编辑',`status`='1',`pid`='1',`level`='3',`sort`='1',`remark`='' WHERE ( id=11 ) [ RunTime:0.0003s ]
 
-[ 2015-08-09T08:27:22+08:00 ] 127.0.0.1 /Manager/Weixin/lists
-ERR: 无法加载控制器:Weixin
+[ 2015-08-09T13:19:11+08:00 ] 127.0.0.1 /Manager/Sysuser/EditSave
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000725s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001210s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\PHPWEB\Blogs\ThinkPHP\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `sys_user` [ RunTime:0.0062s ]
+SQL: UPDATE `sys_user` SET `UserName`='admin356',`Email`='32434256@qq.com',`Mobile`='15019400917' WHERE ( id=9 ) [ RunTime:0.0516s ]
 
-[ 2015-08-09T08:27:29+08:00 ] 127.0.0.1 /Manager/Weixin/lists
-ERR: 无法加载控制器:Weixin
+[ 2015-08-09T13:19:24+08:00 ] 127.0.0.1 /Manager/Sysuser/EditSave
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000702s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001141s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\PHPWEB\Blogs\ThinkPHP\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `sys_user` [ RunTime:0.0054s ]
+SQL: UPDATE `sys_user` SET `UserName`='admin356',`Email`='32434256@qq.com',`Mobile`='15019400917' WHERE ( id=9 ) [ RunTime:0.0003s ]
 
-[ 2015-08-09T08:27:33+08:00 ] 127.0.0.1 /Manager/System/Roles
-ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'blog.role' doesn't exist
+[ 2015-08-09T13:20:11+08:00 ] 127.0.0.1 /Manager/Sysuser/EditSave
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000676s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001447s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\PHPWEB\Blogs\ThinkPHP\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `sys_user` [ RunTime:0.0065s ]
+SQL: UPDATE `sys_user` SET `UserName`='admin356',`Email`='32434256@qq.com',`Mobile`='15019400917' WHERE ( id=9 ) [ RunTime:0.0003s ]
 
-[ 2015-08-09T08:28:21+08:00 ] 127.0.0.1 /Manager/System/RoleEdit/id/17
-ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'blog.role' doesn't exist
+[ 2015-08-09T13:30:30+08:00 ] 127.0.0.1 /Manager/Sysuser/EditSave
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001022s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\PHPWEB\Blogs\ThinkPHP\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `sys_user` [ RunTime:0.0071s ]
+SQL: UPDATE `sys_user` SET `UserName`='admin356',`Email`='32434256@qq.com',`Mobile`='15019400917' WHERE ( id=9 ) [ RunTime:0.0003s ]
 
-[ 2015-08-09T08:30:51+08:00 ] 127.0.0.1 /Manager/System/RoleEdit/id/17
-ERR: 模板不存在:./Manager/Manager/View/System/role_edit.html
+[ 2015-08-09T13:31:43+08:00 ] 127.0.0.1 /Manager/Sysuser/EditSave
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000439s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000800s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\PHPWEB\Blogs\ThinkPHP\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `sys_user` [ RunTime:0.0061s ]
+SQL: UPDATE `sys_user` SET `UserName`='admin356',`Email`='32434256@qq.com',`Mobile`='15019400917' WHERE ( id=9 ) [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0044s ]
+SQL: DELETE FROM `sys_role_user` WHERE ( user_id=9 ) [ RunTime:0.0499s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0073s ]
+SQL: INSERT INTO `sys_role_user` (`role_id`,`user_id`) VALUES ('15','9') [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0077s ]
+SQL: INSERT INTO `sys_role_user` (`role_id`,`user_id`) VALUES ('16','9') [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0075s ]
+SQL: INSERT INTO `sys_role_user` (`role_id`,`user_id`) VALUES ('17','9') [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0086s ]
+SQL: INSERT INTO `sys_role_user` (`role_id`,`user_id`) VALUES ('18','9') [ RunTime:0.0004s ]
 
-[ 2015-08-09T08:34:34+08:00 ] 127.0.0.1 /Manager/System/Role
-ERR: 非法操作:Role
+[ 2015-08-09T13:34:29+08:00 ] 127.0.0.1 /Manager/Sysuser/EditSave
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000630s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001026s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\PHPWEB\Blogs\ThinkPHP\Common\functions.php 第 1261 行.
+NOTIC: [8] Undefined variable: flage E:\PHPWEB\Blogs\Manager\Manager\Controller\SysuserController.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `sys_user` [ RunTime:0.0090s ]
+SQL: UPDATE `sys_user` SET `UserName`='admin356',`Email`='32434256@qq.com',`Mobile`='15019400917' WHERE ( id=9 ) [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0041s ]
+SQL: DELETE FROM `sys_role_user` WHERE ( user_id=9 ) [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0052s ]
+SQL: INSERT INTO `sys_role_user` (`role_id`,`user_id`) VALUES ('15','9') [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0043s ]
+SQL: INSERT INTO `sys_role_user` (`role_id`,`user_id`) VALUES ('16','9') [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0042s ]
+SQL: INSERT INTO `sys_role_user` (`role_id`,`user_id`) VALUES ('17','9') [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0055s ]
+SQL: INSERT INTO `sys_role_user` (`role_id`,`user_id`) VALUES ('18','9') [ RunTime:0.0002s ]
 
-[ 2015-08-09T08:43:44+08:00 ] 127.0.0.1 /Manager/System/Role
-ERR: 非法操作:Role
+[ 2015-08-09T13:34:37+08:00 ] 127.0.0.1 /Manager/Sysuser/EditSave
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000473s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000927s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\PHPWEB\Blogs\ThinkPHP\Common\functions.php 第 1261 行.
+NOTIC: [8] Undefined variable: flage E:\PHPWEB\Blogs\Manager\Manager\Controller\SysuserController.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `sys_user` [ RunTime:0.0077s ]
+SQL: UPDATE `sys_user` SET `UserName`='admin25',`Email`='323235@qq.com',`Mobile`='15019400987' WHERE ( id=8 ) [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0057s ]
+SQL: DELETE FROM `sys_role_user` WHERE ( user_id=8 ) [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0039s ]
+SQL: INSERT INTO `sys_role_user` (`role_id`,`user_id`) VALUES ('15','8') [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0059s ]
+SQL: INSERT INTO `sys_role_user` (`role_id`,`user_id`) VALUES ('16','8') [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0031s ]
+SQL: INSERT INTO `sys_role_user` (`role_id`,`user_id`) VALUES ('17','8') [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0035s ]
+SQL: INSERT INTO `sys_role_user` (`role_id`,`user_id`) VALUES ('18','8') [ RunTime:0.0019s ]
 
-[ 2015-08-09T09:36:07+08:00 ] 127.0.0.1 /Manager/System/src=
-ERR: 非法操作:src=
-
-[ 2015-08-09T09:36:20+08:00 ] 127.0.0.1 /Manager/System/src=
-ERR: 非法操作:src=
-
-[ 2015-08-09T09:38:40+08:00 ] 127.0.0.1 /Manager/System/Role
-ERR: 非法操作:Role
-
-[ 2015-08-09T09:38:44+08:00 ] 127.0.0.1 /Manager/System/Role
-ERR: 非法操作:Role
-
-[ 2015-08-09T09:50:03+08:00 ] 127.0.0.1 /Manager/System/RoleEdit/id/1
-ERR: 模板不存在:./Manager/Manager/View/System/role_edit.html
-
-[ 2015-08-09T09:50:16+08:00 ] 127.0.0.1 /Manager/System/RoleAdd
-ERR: 模板不存在:./Manager/Manager/View/System/role_add.html
+[ 2015-08-09T13:34:45+08:00 ] 127.0.0.1 /Manager/Sysuser/EditSave
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000461s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000820s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\PHPWEB\Blogs\ThinkPHP\Common\functions.php 第 1261 行.
+NOTIC: [8] Undefined variable: flage E:\PHPWEB\Blogs\Manager\Manager\Controller\SysuserController.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `sys_user` [ RunTime:0.0091s ]
+SQL: UPDATE `sys_user` SET `UserName`='admin25',`Email`='323235@qq.com',`Mobile`='15019400987' WHERE ( id=8 ) [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0041s ]
+SQL: DELETE FROM `sys_role_user` WHERE ( user_id=8 ) [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0071s ]
+SQL: INSERT INTO `sys_role_user` (`role_id`,`user_id`) VALUES ('17','8') [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `sys_role_user` [ RunTime:0.0036s ]
+SQL: INSERT INTO `sys_role_user` (`role_id`,`user_id`) VALUES ('18','8') [ RunTime:0.0002s ]
 

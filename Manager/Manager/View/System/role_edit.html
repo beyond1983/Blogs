@@ -1,0 +1,67 @@
+<!-- 引入头部文件 -->
+<include file="./Manager/Manager/View/Share/header.html" />
+
+<div class="container-fluid">
+	<!-- BEGIN PAGE HEADER-->
+	<ol class="breadcrumb">
+		<li>
+			<i class="glyphicon glyphicon-wrench"></i>
+			<a href="javascript:void(0);">系统管理</a> 
+			<i class="icon-angle-right"></i>
+		</li>
+		<li><a href="{:U('/Manager/System/Roles')}">角色管理</a></li>
+		<li class="active">编辑角色</li>
+	</ol>
+
+	<!-- 页面主内容 -->
+	<div class="row-fluid">
+		<form class="form-horizontal">
+			<div class="form-group has-feedback">
+				<label for="name" class="col-sm-1 control-label">角色名</label>
+			 	<div class="col-sm-3">
+			 		<input type="hidden" name="id" value="{$info.id}">
+			      <input type="text" class="form-control" id="name" name="name" placeholder="角色名" data-type="required" value="{$info.name}">
+			    </div>
+			</div>
+			<div class="form-group has-feedback">
+				<label for="status" class="col-sm-1 control-label">角色状态</label>
+			 	<div class="col-sm-3">
+			      <select name="status" id="status" class="form-control">
+			      	<option value="0" <eq name="info.status" value="0">selected="selected"</eq>>禁用</option>
+			      	<option value="1" <eq name="info.status" value="1">selected="selected"</eq>>启用</option>
+			      </select>
+			    </div>
+			</div>
+			<div class="form-group has-feedback">
+				<label for="remark" class="col-sm-1 control-label">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注</label>
+			 	<div class="col-sm-3">
+			      <textarea name="remark" id="remark" cols="30" rows="10" class="form-control">{$info.remark}</textarea>
+			    </div>
+			</div>			
+			<div class="form-group">
+				<div class="col-sm-offset-1 col-sm-3">
+					<button class="btn btn-info btn-md" type="button" onclick="SubmitForm()">保存</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<!-- 页面主内容-结束 -->
+
+</div>
+<script type="text/javascript">
+//表单验证
+$('form').FormValider();
+
+// 保存
+function SubmitForm(){
+	if($('form').FormValider().CheckForm()){
+		$.AjaxSave({
+			url:'/Manager/System/RoleSave',
+			returnHref:'/Manager/System/Roles'
+		})
+	}
+};
+</script>
+<!-- 引入底部文件 -->
+<include file="./Manager/Manager/View/Share/footer.html"/>
+

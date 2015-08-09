@@ -97,16 +97,17 @@ class SystemController extends BaseController{
 			}
 		}else{//修改
 			$result = $Role->where('id=%d',$id)->save($data);
-			if($result){
-				$returnData['result']=true;
-				$returnData['msg']='保存成功';
+			if($result===false){
+				$returnData['result']=false;
+				$returnData['msg']='保存失败！';
 
 				//返回
 				$this->ajaxReturn($returnData);
 			}
 			else{
-				$returnData['result']=false;
-				$returnData['msg']='保存失败！';
+
+				$returnData['result']=true;
+				$returnData['msg']='保存成功';
 
 				//返回
 				$this->ajaxReturn($returnData);
@@ -126,15 +127,15 @@ class SystemController extends BaseController{
 
 		//删除
 		$result = $Role->where('id=%d',$id)->delete();
-		if($result){
-			$returnData['result']=true;
-			$returnData['msg']='保存成功';
+		if($result===false){
+			$returnData['result']=false;
+			$returnData['msg']='保存失败！';
 
 			//返回
 			$this->ajaxReturn($returnData);
 		}else{
-			$returnData['result']=false;
-			$returnData['msg']='保存失败！';
+			$returnData['result']=true;
+			$returnData['msg']='保存成功';
 
 			//返回
 			$this->ajaxReturn($returnData);
@@ -167,7 +168,7 @@ class SystemController extends BaseController{
 	*/
 	public function Nodes(){
 		//系统角色对象
-		$Nodes =  M('Role','Sys_','Db_Config1');
+		$Nodes =  M('Node','Sys_','Db_Config1');
 
 		// 获取分页数据列表
 		$count = $Nodes->count();// 查询满足要求的总记录数
@@ -183,7 +184,6 @@ class SystemController extends BaseController{
 
 		// 如果使用数组, 请使用 getArray方法
 		$list=$tree->getArray();
-		var_dump($list);
 
 		//绑定输出
 		$this->assign('list',$list);// 赋值数据集
@@ -198,7 +198,7 @@ class SystemController extends BaseController{
 	*/
 	public function NodeAdd(){
 		// 模块对象
-		$Node =  M('Role','Sys_','Db_Config1');
+		$Node =  M('Node','Sys_','Db_Config1');
 
 		// 获取数据列表
 		$list = $Node->where('status=1')->select();
@@ -232,7 +232,7 @@ class SystemController extends BaseController{
 		$remark=I('remark');
 
 		// 实例化数据对象
-		$Node =  M('Role','Sys_','Db_Config1');
+		$Node =  M('Node','Sys_','Db_Config1');
 
 		// 绑定数据
 		$data['name']=$name;
@@ -263,16 +263,16 @@ class SystemController extends BaseController{
 			}
 		}else{//修改
 			$result = $Node->where('id=%d',$id)->save($data);
-			if($result){
-				$returnData['result']=true;
-				$returnData['msg']='修改成功';
+			if($result===false){
+				$returnData['result']=false;
+				$returnData['msg']='修改失败！';
 
 				//返回
 				$this->ajaxReturn($returnData);
 			}
 			else{
-				$returnData['result']=false;
-				$returnData['msg']='修改失败！';
+				$returnData['result']=true;
+				$returnData['msg']='修改成功';
 
 				//返回
 				$this->ajaxReturn($returnData);
@@ -294,7 +294,7 @@ class SystemController extends BaseController{
 		}
 
 		// 获取数据
-		$Node =  M('Role','Sys_','Db_Cofig1');
+		$Node =  M('Node','Sys_','Db_Cofig1');
 		$Info = $Node->where('id=%d',$id)->find();
 		$List =$Node->where('id<>%d',$id)->select();
 
@@ -320,7 +320,7 @@ class SystemController extends BaseController{
 		$id = I('id',0,'int');
 
 		//角色对象
-		$Node =  M('Role','Sys_','Db_Cofig1');
+		$Node =  M('Node','Sys_','Db_Cofig1');
 
 		//删除
 		$result = $Node->where('id=%d',$id)->delete();

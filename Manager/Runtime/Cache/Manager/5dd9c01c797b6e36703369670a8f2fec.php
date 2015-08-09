@@ -148,3 +148,10 @@ function SubmitForm(){
 };
 </script>
 <!-- 引入底部文件 -->
+<div class="footer">
+	<div class="footer-inner text-center">
+		2015 &copy; Admin ZEOR.
+	</div>
+</div>
+</body>
+</html>

@@ -76,32 +76,74 @@
 			<a href="javascript:void(0);">系统管理</a> 
 			<i class="icon-angle-right"></i>
 		</li>
-		<li><a href="<?php echo U('/Manager/System/Roles');?>">角色管理</a></li>
-		<li class="active">新增角色</li>
+		<li><a href="<?php echo U('/Manager/System/Nodes');?>">模块管理</a></li>
+		<li class="active">修改模块</li>
 	</ol>
 
 	<!-- 页面主内容 -->
 	<div class="row-fluid">
 		<form class="form-horizontal">
 			<div class="form-group has-feedback">
-				<label for="name" class="col-sm-1 control-label">角色名</label>
+				<label for="name" class="col-sm-1 control-label">模块名称</label>
 			 	<div class="col-sm-3">
-			      <input type="text" class="form-control" id="name" name="name" placeholder="角色名" data-type="required">
+					<input type="hidden" name="id" value="<?php echo ($Info["id"]); ?>">
+		      		<input type="text" class="form-control" id="name" name="name" placeholder="模块名称" data-type="required" value="<?php echo ($Info["name"]); ?>">
 			    </div>
 			</div>
 			<div class="form-group has-feedback">
-				<label for="status" class="col-sm-1 control-label">角色状态</label>
+				<label for="title" class="col-sm-1 control-label">模块别名</label>
+			 	<div class="col-sm-3">
+			      <input type="text" class="form-control" id="title" name="title" placeholder="模块别名" data-type="required" value="<?php echo ($Info["title"]); ?>">
+			    </div>
+			</div>
+			<div class="form-group has-feedback">
+				<label for="status" class="col-sm-1 control-label">模块状态</label>
 			 	<div class="col-sm-3">
 			      <select name="status" id="status" class="form-control">
-			      	<option value="0">禁用</option>
-			      	<option value="1" selected="selected">启用</option>
+			      	<option value="0" <?php if(($Info["status"]) == "0"): ?>selected="selected"<?php endif; ?>>禁用</option>
+			      	<option value="1" <?php if(($Info["status"]) == "1"): ?>selected="selected">启用<?php endif; ?></option>
+			      </select>
+			    </div>
+			</div>
+			<div class="form-group has-feedback">
+				<label for="pid" class="col-sm-1 control-label">父模块</label>
+			 	<div class="col-sm-3">
+			    	<select name="pid" id="pid" class="form-control">
+			      		<option value="0">----</option>
+			      		<?php if(is_array($List)): foreach($List as $key=>$item): ?><option value="<?php echo ($item["id"]); ?>"<?php if($item["id"] == $Info['pid']): ?>selected="selected"<?php endif; ?>><?php echo ($item["name"]); ?></option><?php endforeach; endif; ?>
+			      	</select>
+			    </div>
+			</div>
+			<div class="form-group has-feddback">
+				<label for="pid" class="col-sm-1 control-label">所属功能</label>
+			 	<div class="col-sm-3">
+					<label class="radio-inline">
+						<input type="radio" name="level" id="levelRadio1" value="1" <?php if(($Info["level"]) == "1"): ?>checked="checked"<?php endif; ?>> 项目
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="level" id="levelRadio2" value="2" <?php if(($Info["level"]) == "2"): ?>checked="checked"<?php endif; ?>> 模块
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="level" id="levelRadio3" value="3" <?php if(($Info["level"]) == "3"): ?>checked="checked"<?php endif; ?>> 操作
+					</label>
+			    </div>
+			</div>
+			<div class="form-group has-feedback">
+				<label for="sort" class="col-sm-1 control-label">排序ID</label>
+			 	<div class="col-sm-3">
+			      <select name="sort" id="sort" class="form-control">
+			      	<option value="1" selected="selected">1</option>
+			      	<option value="2">2</option>
+			      	<option value="3">3</option>
+			      	<option value="4">4</option>
+			      	<option value="5">5</option>
 			      </select>
 			    </div>
 			</div>
 			<div class="form-group has-feedback">
 				<label for="remark" class="col-sm-1 control-label">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注</label>
 			 	<div class="col-sm-3">
-			      <textarea name="remark" id="remark" cols="30" rows="10" class="form-control"></textarea>
+			      <textarea name="remark" id="remark" cols="30" rows="10" class="form-control"><?php echo ($Info["remark"]); ?></textarea>
 			    </div>
 			</div>			
 			<div class="form-group">
@@ -122,9 +164,9 @@ $('form').FormValider();
 function SubmitForm(){
 	if($('form').FormValider().CheckForm()){
 		$.AjaxSave({
-			url:'RoleSave',
-			returnHref:'/Manager/System/Roles'
-		})
+			url:'/Manager/System/NodeSave',
+			returnHref:'/Manager/System/Nodes'
+		});
 	}
 };
 </script>

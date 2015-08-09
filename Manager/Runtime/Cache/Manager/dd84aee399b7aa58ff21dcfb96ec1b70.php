@@ -72,61 +72,79 @@
 	<!-- BEGIN PAGE HEADER-->
 	<ol class="breadcrumb">
 		<li>
-			<i class="glyphicon glyphicon-user"></i>
-			<a href="javascript:void(0);">用户管理</a> 
+			<i class="glyphicon glyphicon-wrench"></i>
+			<a href="javascript:void(0);">系统管理</a> 
 			<i class="icon-angle-right"></i>
 		</li>
-		<li><a href="<?php echo U('/Manager/Sysuser/Index');?>">用户列表</a></li>
-		<li class="active">新增用户</li>
+		<li><a href="<?php echo U('/Manager/System/Nodes');?>">模块管理</a></li>
+		<li class="active">新增模块</li>
 	</ol>
 
 	<!-- 页面主内容 -->
 	<div class="row-fluid">
 		<form class="form-horizontal">
 			<div class="form-group has-feedback">
-				<label for="loginid" class="col-sm-1 control-label">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</label>
+				<label for="name" class="col-sm-1 control-label">模块名称</label>
 			 	<div class="col-sm-3">
-			      <input type="text" class="form-control" id="loginid" name="loginid" placeholder="账号" data-type="required">
+			      <input type="text" class="form-control" id="name" name="name" placeholder="模块名称" data-type="required">
 			    </div>
 			</div>
 			<div class="form-group has-feedback">
-				<label for="username" class="col-sm-1 control-label">用&nbsp;户&nbsp;&nbsp;名</label>
+				<label for="title" class="col-sm-1 control-label">模块别名</label>
 			 	<div class="col-sm-3">
-			      <input type="text" class="form-control" id="username" name="username" placeholder="用户名" data-type="required">
+			      <input type="text" class="form-control" id="title" name="title" placeholder="模块别名" data-type="required">
 			    </div>
 			</div>
 			<div class="form-group has-feedback">
-				<label for="role_id" class="col-sm-1 control-label">所属角色</label>
-				<div class="col-sm-3">
-					<select name="role_id" id="role_id" class="form-control" multiple>
-					<?php if(is_array($Roles)): foreach($Roles as $key=>$role): ?><option value="<?php echo ($role["id"]); ?>"><?php echo ($role["name"]); ?></option><?php endforeach; endif; ?>
-					</select>
-				</div>
-			</div>
-			<div class="form-group has-feedback">
-				<label for="password" class="col-sm-1 control-label">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+				<label for="status" class="col-sm-1 control-label">模块状态</label>
 			 	<div class="col-sm-3">
-			      <input type="password" class="form-control" id="password" name="password" placeholder="密码" data-type="required">
+			      <select name="status" id="status" class="form-control">
+			      	<option value="0">禁用</option>
+			      	<option value="1" selected="selected">启用</option>
+			      </select>
 			    </div>
 			</div>
 			<div class="form-group has-feedback">
-				<label for="password2" class="col-sm-1 control-label">确认密码</label>
+				<label for="pid" class="col-sm-1 control-label">父模块</label>
 			 	<div class="col-sm-3">
-			      <input type="password" class="form-control" id="password2" name="password2" placeholder="确认密码" data-type="required">
+			    	<select name="pid" id="pid" class="form-control">
+			      		<option value="0">----</option>
+			      		<?php if(is_array($list)): foreach($list as $key=>$item): ?><option value="<?php echo ($item["id"]); ?>"><?php echo ($item["name"]); ?></option><?php endforeach; endif; ?>
+			      	</select>
+			    </div>
+			</div>
+			<div class="form-group has-feddback">
+				<label for="pid" class="col-sm-1 control-label">所属功能</label>
+			 	<div class="col-sm-3">
+					<label class="radio-inline">
+						<input type="radio" name="level" id="levelRadio1" value="1"> 项目
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="level" id="levelRadio2" value="2" checked="checked"> 模块
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="level" id="levelRadio3" value="3"> 操作
+					</label>
 			    </div>
 			</div>
 			<div class="form-group has-feedback">
-				<label for="email" class="col-sm-1 control-label">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱</label>
+				<label for="sort" class="col-sm-1 control-label">排序ID</label>
 			 	<div class="col-sm-3">
-			      <input type="text" class="form-control" id="email" name="email" placeholder="邮箱" data-type="required email">
+			      <select name="sort" id="sort" class="form-control">
+			      	<option value="1" selected="selected">1</option>
+			      	<option value="2">2</option>
+			      	<option value="3">3</option>
+			      	<option value="4">4</option>
+			      	<option value="5">5</option>
+			      </select>
 			    </div>
 			</div>
 			<div class="form-group has-feedback">
-				<label for="mobile" class="col-sm-1 control-label">手机号码</label>
+				<label for="remark" class="col-sm-1 control-label">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注</label>
 			 	<div class="col-sm-3">
-			      <input type="text" class="form-control" id="mobile" name="mobile" placeholder="手机号码" data-type="required mobile">
+			      <textarea name="remark" id="remark" cols="30" rows="10" class="form-control"></textarea>
 			    </div>
-			</div>
+			</div>			
 			<div class="form-group">
 				<div class="col-sm-offset-1 col-sm-3">
 					<button class="btn btn-info btn-md" type="button" onclick="SubmitForm()">保存</button>
@@ -145,10 +163,17 @@ $('form').FormValider();
 function SubmitForm(){
 	if($('form').FormValider().CheckForm()){
 		$.AjaxSave({
-			url:'/Manager/Sysuser/AddSave',
-			returnHref:'/Manager/Sysuser/Index'
+			url:'NodeSave',
+			returnHref:'/Manager/System/Nodes'
 		})
 	}
 };
 </script>
 <!-- 引入底部文件 -->
+<div class="footer">
+	<div class="footer-inner text-center">
+		2015 &copy; Admin ZEOR.
+	</div>
+</div>
+</body>
+</html>

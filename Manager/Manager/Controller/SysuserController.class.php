@@ -20,6 +20,7 @@ class SysuserController extends Controller
 		$count = $Model->count();// 查询满足要求的总记录数
 		$Page = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
 		$show = $Page->show();// 分页显示输出
+
 		// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
 		$list = $Model->order('id')->limit($Page->firstRow.','.$Page->listRows)->select();
 		
@@ -151,7 +152,7 @@ class SysuserController extends Controller
 		//开启事务
 		$model = new Model();
 		$model->startTrans();
-		$flage=false;
+		$flage===false;
 
 		//申明修改用户对象
 		$data['UserName']=$username;
@@ -163,14 +164,22 @@ class SysuserController extends Controller
 
 		//更新
 		$flage = $model->table('sys_user')->where('id=%d',$id)->save($data);
-		if($flage){
+		if($flage===false){
+			//事务回滚
+			$model->rollback();
+
+			$result['result']  = false;
+			$result['msg'] = '修改用户资料失败！';
+			$this->ajaxReturn($result);
+		}
+		else{
 			$flage=$model->table('sys_role_user')->where('user_id=%d',$id)->delete();
 			if($flage===false){
 				//事务回滚
 				$model->rollback();
 
 				$result['result']  = false;
-				$result['msg'] = '2修改用户资料失败！'.$model->_sql();
+				$result['msg'] = '修改用户资料失败！';
 				$this->ajaxReturn($result);
 			}
 
@@ -181,12 +190,12 @@ class SysuserController extends Controller
 				$data2['user_id']=$id;
 
 				$flage = $model->table('sys_role_user')->add($data2);
-				if(!$flage){
+				if($flage===false){
 					//事务回滚
 					$model->rollback();
 
 					$result['result']  = false;
-					$result['msg'] = '3修改用户资料失败！'.$key;
+					$result['msg'] = '修改用户资料失败！';
 					$this->ajaxReturn($result);
 				} 
 			}
@@ -196,18 +205,11 @@ class SysuserController extends Controller
 				$model->commit();
 
 				$result['result']  = true;
-				$result['msg'] = '4修改用户资料成功！';
+				$result['msg'] = '修改用户资料成功！';
 				$this->ajaxReturn($result);
 			}
 		}
-		else{
-			//事务回滚
-			$model->rollback();
-
-			$result['result']  = false;
-			$result['msg'] = '1修改用户资料失败！'.$model->_sql();
-			$this->ajaxReturn($result);
-		}
+		
 	}
 
 	/**
@@ -219,7 +221,7 @@ class SysuserController extends Controller
 		$id =I('id');
 
 		//实例化Model
-		$Sysuser =D('Sysuser');
+		$Sysuser =M('user','sys_','DB_CONFIG1');
 
 		// 删除操作
 		$result = $Sysuser->where('id=%d',$id)->delete();
@@ -249,7 +251,11 @@ class SysuserController extends Controller
 	public function Edit()
 	{
 		// 获取参数
-		$id = I('id');
+		$id = I('id',0,'int');
+
+		if(!$id){
+			$this->error('参数错误!','/Manager/Sysuser/Index');
+		}
 
 		// 获取数据
 		$User = M('user','sys_','DB_CONFIG1');
@@ -258,17 +264,16 @@ class SysuserController extends Controller
 		$info = $User->where('id=%d',$id)->find();
 		$Roles = $Role->where('status=1')->select();
 		$RoleUser = $RoleUser->where('user_id=%d',$id)->select();
-		var_dump($RoleUser);
 
-		//选中处理
+		//角色选中处理
 		foreach ($Roles as $key => $role) {
 			$Roles[$key]['select']="";
-			foreach ($RoleUser as $key => $value) {
+			foreach ($RoleUser as $idx => $value) {
 				if($role['id']==$value['role_id'])
 					$Roles[$key]['select']="selected";
 			}
 		}
-		var_dump($Roles);
+
 		//绑定
 		$this->assign('user',$info);
 		$this->assign('Roles',$Roles);
