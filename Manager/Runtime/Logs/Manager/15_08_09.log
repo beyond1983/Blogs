@@ -1,0 +1,57 @@
+[ 2015-08-09T08:20:32+08:00 ] 127.0.0.1 /Manager/Index/index
+ERR: 模板不存在:./Manager/Manager/View/Index/Index.html
+
+[ 2015-08-09T08:20:58+08:00 ] 127.0.0.1 /Manager/System/Roles
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'blog.role' doesn't exist
+
+[ 2015-08-09T08:22:05+08:00 ] 127.0.0.1 /Manager/Index/index
+ERR: 模板不存在:./Manager/Manager/View/Index/Index.html
+
+[ 2015-08-09T08:24:50+08:00 ] 127.0.0.1 /Manager/Sysuser/Index
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'blog.sysuser' doesn't exist
+
+[ 2015-08-09T08:26:41+08:00 ] 127.0.0.1 /Manager/Weixin/lists
+ERR: 无法加载控制器:Weixin
+
+[ 2015-08-09T08:27:18+08:00 ] 127.0.0.1 /Manager/Weixin/lists
+ERR: 无法加载控制器:Weixin
+
+[ 2015-08-09T08:27:22+08:00 ] 127.0.0.1 /Manager/Weixin/lists
+ERR: 无法加载控制器:Weixin
+
+[ 2015-08-09T08:27:29+08:00 ] 127.0.0.1 /Manager/Weixin/lists
+ERR: 无法加载控制器:Weixin
+
+[ 2015-08-09T08:27:33+08:00 ] 127.0.0.1 /Manager/System/Roles
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'blog.role' doesn't exist
+
+[ 2015-08-09T08:28:21+08:00 ] 127.0.0.1 /Manager/System/RoleEdit/id/17
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'blog.role' doesn't exist
+
+[ 2015-08-09T08:30:51+08:00 ] 127.0.0.1 /Manager/System/RoleEdit/id/17
+ERR: 模板不存在:./Manager/Manager/View/System/role_edit.html
+
+[ 2015-08-09T08:34:34+08:00 ] 127.0.0.1 /Manager/System/Role
+ERR: 非法操作:Role
+
+[ 2015-08-09T08:43:44+08:00 ] 127.0.0.1 /Manager/System/Role
+ERR: 非法操作:Role
+
+[ 2015-08-09T09:36:07+08:00 ] 127.0.0.1 /Manager/System/src=
+ERR: 非法操作:src=
+
+[ 2015-08-09T09:36:20+08:00 ] 127.0.0.1 /Manager/System/src=
+ERR: 非法操作:src=
+
+[ 2015-08-09T09:38:40+08:00 ] 127.0.0.1 /Manager/System/Role
+ERR: 非法操作:Role
+
+[ 2015-08-09T09:38:44+08:00 ] 127.0.0.1 /Manager/System/Role
+ERR: 非法操作:Role
+
+[ 2015-08-09T09:50:03+08:00 ] 127.0.0.1 /Manager/System/RoleEdit/id/1
+ERR: 模板不存在:./Manager/Manager/View/System/role_edit.html
+
+[ 2015-08-09T09:50:16+08:00 ] 127.0.0.1 /Manager/System/RoleAdd
+ERR: 模板不存在:./Manager/Manager/View/System/role_add.html
+

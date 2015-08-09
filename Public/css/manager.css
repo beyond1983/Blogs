@@ -1,0 +1,35 @@
+/*登录页面样式*/
+.login {
+	padding-top: 100px;
+	background-image: url('../images/bg1.jpg');
+	background-repeat: repeat;
+}
+
+.login .header{
+	font-weight: 300;
+	line-height: 50px;
+	background-color: #ffffff;
+	border-radius: 5px 5px 0 0;
+	font-family: monospace;
+}
+.login .content{
+	font-family: monospace;;
+	background-color: #ffffff;
+}
+.login .content>label,input{
+	font-family: monospace;
+}
+.login .footer{
+	background-color: #ffffff;
+	border-radius: 0 0 5px 5px;
+}
+
+/*主页面*/
+.tool{
+	padding-bottom: 15px;
+}
+
+/*公共表单样式*/
+.form-group label{
+	font-weight: 500;
+}

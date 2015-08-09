@@ -1,0 +1,110 @@
+<!-- 引入头部文件 -->
+<include file="./Manager/Manager/View/Share/header.html" />
+
+<div class="container-fluid">
+	<!-- BEGIN PAGE HEADER-->
+	<ol class="breadcrumb">
+		<li>
+			<i class="glyphicon glyphicon-wrench"></i>
+			<a href="javascript:void(0);">系统管理</a> 
+			<i class="icon-angle-right"></i>
+		</li>
+		<li><a href="{:U('/Manager/System/Nodes')}">模块管理</a></li>
+		<li class="active">修改模块</li>
+	</ol>
+
+	<!-- 页面主内容 -->
+	<div class="row-fluid">
+		<form class="form-horizontal">
+			<div class="form-group has-feedback">
+				<label for="name" class="col-sm-1 control-label">模块名称</label>
+			 	<div class="col-sm-3">
+					<input type="hidden" name="id" value="{$Info.id}">
+		      		<input type="text" class="form-control" id="name" name="name" placeholder="模块名称" data-type="required" value="{$Info.name}">
+			    </div>
+			</div>
+			<div class="form-group has-feedback">
+				<label for="title" class="col-sm-1 control-label">模块别名</label>
+			 	<div class="col-sm-3">
+			      <input type="text" class="form-control" id="title" name="title" placeholder="模块别名" data-type="required" value="{$Info.title}">
+			    </div>
+			</div>
+			<div class="form-group has-feedback">
+				<label for="status" class="col-sm-1 control-label">模块状态</label>
+			 	<div class="col-sm-3">
+			      <select name="status" id="status" class="form-control">
+			      	<option value="0" <eq name="Info.status" value="0">selected="selected"</eq>>禁用</option>
+			      	<option value="1" <eq name="Info.status" value="1">selected="selected">启用</eq></option>
+			      </select>
+			    </div>
+			</div>
+			<div class="form-group has-feedback">
+				<label for="pid" class="col-sm-1 control-label">父模块</label>
+			 	<div class="col-sm-3">
+			    	<select name="pid" id="pid" class="form-control">
+			      		<option value="0">----</option>
+			      		<foreach name="List" item="item">
+			      			<option value="{$item.id}"<if condition="$item.id eq $Info['pid']">selected="selected"</if>>{$item.name}</option>
+						</foreach>
+			      	</select>
+			    </div>
+			</div>
+			<div class="form-group has-feddback">
+				<label for="pid" class="col-sm-1 control-label">所属功能</label>
+			 	<div class="col-sm-3">
+					<label class="radio-inline">
+						<input type="radio" name="level" id="levelRadio1" value="1" <eq name="Info.level" value="1">checked="checked"</eq>> 项目
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="level" id="levelRadio2" value="2" <eq name="Info.level" value="2">checked="checked"</eq>> 模块
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="level" id="levelRadio3" value="3" <eq name="Info.level" value="3">checked="checked"</eq>> 操作
+					</label>
+			    </div>
+			</div>
+			<div class="form-group has-feedback">
+				<label for="sort" class="col-sm-1 control-label">排序ID</label>
+			 	<div class="col-sm-3">
+			      <select name="sort" id="sort" class="form-control">
+			      	<option value="1" selected="selected">1</option>
+			      	<option value="2">2</option>
+			      	<option value="3">3</option>
+			      	<option value="4">4</option>
+			      	<option value="5">5</option>
+			      </select>
+			    </div>
+			</div>
+			<div class="form-group has-feedback">
+				<label for="remark" class="col-sm-1 control-label">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注</label>
+			 	<div class="col-sm-3">
+			      <textarea name="remark" id="remark" cols="30" rows="10" class="form-control">{$Info.remark}</textarea>
+			    </div>
+			</div>			
+			<div class="form-group">
+				<div class="col-sm-offset-1 col-sm-3">
+					<button class="btn btn-info btn-md" type="button" onclick="SubmitForm()">保存</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<!-- 页面主内容-结束 -->
+
+</div>
+<script type="text/javascript">
+//表单验证
+$('form').FormValider();
+
+// 保存
+function SubmitForm(){
+	if($('form').FormValider().CheckForm()){
+		$.AjaxSave({
+			url:'/Manager/System/NodeSave',
+			returnHref:'/Manager/System/Nodes'
+		});
+	}
+};
+</script>
+<!-- 引入底部文件 -->
+<include file="./Manager/Manager/View/Share/footer.html"/>
+

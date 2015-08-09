@@ -1,0 +1,49 @@
+<!-- 引入头部文件 -->
+<include file="./Manager/Manager/View/Share/header.html" />
+
+<div class="container-fluid">
+	<!-- BEGIN PAGE HEADER-->
+	<ol class="breadcrumb">
+		<li>
+			<i class="glyphicon glyphicon-wrench"></i>
+			<a href="javascript:void(0);">系统管理</a> 
+			<i class="icon-angle-right"></i>
+		</li>
+		<li class="active">角色管理</li>
+	</ol>
+	<!-- 工具栏 -->
+	<div class="row-fluid tool">
+		<a href="/Manager/System/RoleAdd" class="btn btn-info" aria-label="Left Align"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 新增角色</a>		
+	</div>
+	<!-- 页面主内容 -->
+	<div class="row-fluid">
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+			<tr><th></th><th>角色名</th><th>状态</th><th>备注</th><th>操作</th></tr>
+				<foreach name="list" item="item">
+					<tr><td>{$key+1}</td><td>{$item.name}</td><td>{$item['status']==1?'启用':'禁用'}</td><td>{$item.remark}</td><td><a onclick="Del({$item.id})">删除</a>&nbsp;<a href="/Manager/System/RoleEdit/id/{$item.id}">修改</a></tr>
+				</foreach>
+			</table>
+		</div>
+		
+		<!-- 分页内容 -->
+		{$page}
+	</div>
+	<!-- 页面主内容-结束 -->
+</div>
+<script type="text/javascript" src="/Public/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="/Public/js/comm.js"></script>
+<script type="text/javascript">
+// 删除
+function Del(id){
+	if(window.confirm("确认删除?")){
+		$.AjaxDel({
+			url:'/Manager/System/RoleDel',
+			data:{id:id},
+		});
+	}
+};	
+
+</script>
+<!-- 引入底部文件 -->
+<include file="./Manager/Manager/View/Share/footer.html"/>
